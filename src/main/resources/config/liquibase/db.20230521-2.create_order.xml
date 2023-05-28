@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="20230521-2-1" author="SGagarinov" logicalFilePath="db.20230521-2.create_order.xml">
+        <createTable tableName="orders">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="customer_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="product_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="amount" type="integer">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="20230521-2-2" author="SGagarinov" logicalFilePath="db.20230521-2.create_order.xml">
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="customer_id" constraintName="orders_customers_id_fkey" referencedTableName="customers"
+                                 referencedColumnNames="id" />
+    </changeSet>
+    <changeSet id="20230521-2-3" author="SGagarinov" logicalFilePath="db.20230521-2.create_order.xml">
+        <insert tableName="orders">
+            <column name="id">1</column>
+            <column name="date">2023-05-20</column>
+            <column name="customer_id">1</column>
+            <column name="product_name">orange</column>
+            <column name="amount">3</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

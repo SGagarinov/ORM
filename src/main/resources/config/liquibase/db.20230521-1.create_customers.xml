@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="20230521-1-1" author="SGagarinov" logicalFilePath="db.20230521-1.create_customers.xml">
+        <createTable tableName="customers">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="surname" type="varchar(255)" />
+            <column name="age" type="integer" />
+            <column name="phone_number" type="varchar(15)" />
+            <column name="city_of_living" type="varchar(25)" />
+        </createTable>
+    </changeSet>
+    <changeSet id="20230521-1-2" author="SGagarinov" logicalFilePath="db.20230521-1.create_customers.xml">
+        <insert tableName="customers">
+            <column name="id">1</column>
+            <column name="name">Petr</column>
+            <column name="city_of_living">Omsk</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
