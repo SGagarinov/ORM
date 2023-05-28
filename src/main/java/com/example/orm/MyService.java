@@ -1,8 +1,7 @@
-package com.example.jdbc.api;
+package com.example.orm;
 
-import com.example.jdbc.api.entity.Customer;
-import com.example.jdbc.api.repository.MyDataBase;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.orm.entity.Customer;
+import com.example.orm.repository.MyDataBase;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

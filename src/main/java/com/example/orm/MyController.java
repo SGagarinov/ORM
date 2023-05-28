@@ -1,6 +1,6 @@
-package com.example.jdbc.api;
+package com.example.orm;
 
-import com.example.jdbc.api.entity.Customer;
+import com.example.orm.entity.Customer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.example.jdbc.api;
+package com.example.orm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

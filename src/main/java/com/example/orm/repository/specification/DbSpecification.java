@@ -1,6 +1,6 @@
-package com.example.jdbc.api.repository.specification;
+package com.example.orm.repository.specification;
 
-import com.example.jdbc.api.entity.Customer;
+import com.example.orm.entity.Customer;
 import org.springframework.data.jpa.domain.Specification;
 
 public class DbSpecification {

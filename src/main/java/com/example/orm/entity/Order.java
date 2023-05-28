@@ -1,9 +1,8 @@
-package com.example.jdbc.api.entity;
+package com.example.orm.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "orders")

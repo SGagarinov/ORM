@@ -1,8 +1,8 @@
-package com.example.jdbc.api.repository;
+package com.example.orm.repository;
 
-import com.example.jdbc.api.entity.Customer;
-import com.example.jdbc.api.entity.Order;
-import com.example.jdbc.api.repository.specification.DbSpecification;
+import com.example.orm.entity.Customer;
+import com.example.orm.entity.Order;
+import com.example.orm.repository.specification.DbSpecification;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
