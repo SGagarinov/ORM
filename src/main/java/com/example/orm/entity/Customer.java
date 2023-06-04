@@ -26,7 +26,7 @@ public class Customer {
     private String phoneNumber;
 
     @Column(name = "city_of_living", length = 25)
-    private String cityOfLiving;
+    private String city;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
@@ -85,11 +85,11 @@ public class Customer {
     }
 
     public String getCityOfLiving() {
-        return cityOfLiving;
+        return city;
     }
 
-    public void setCityOfLiving(String cityOfLiving) {
-        this.cityOfLiving = cityOfLiving;
+    public void setCityOfLiving(String city) {
+        this.city = city;
     }
 
     @Override

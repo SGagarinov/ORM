@@ -25,4 +25,15 @@ public class MyController {
     public List<Customer> getPersonsByCity(@RequestParam (value = "city", required = false) String city) {
         return service.getPersonsByCity(city);
     }
+
+    @GetMapping("/persons/by-age")
+    public List<Customer> getPersonsByCity(@RequestParam (value = "age", required = false) int age) {
+        return service.getPersonByAge(age);
+    }
+
+    @GetMapping("/persons/by-name-surname")
+    public List<Customer> getByNameAndSurname(@RequestParam (value = "name", required = false) String name,
+                                              @RequestParam (value="surname", required = false) String surname) {
+        return service.getByNameAndSurname(name, surname);
+    }
 }
