@@ -22,20 +22,20 @@ public class MyService {
         this.customersRepository = customersRepository;
     }
 
-    protected String getProductName(String name) {
+    public String getProductName(String name) {
         return myDataBase.getProductName(name);
     }
 
-    protected List<Customer> getPersonsByCity(String city) {
+    public List<Customer> getPersonsByCity(String city) {
 //        return myDataBase.getPersonsByCity(city);
         return customersRepository.findByCity(city);
     }
 
-    protected List<Customer> getPersonByAge(int age) {
+    public List<Customer> getPersonByAge(int age) {
         return customersRepository.findByAgeLessThan(age, Sort.by("age"));
     }
 
-    protected List<Customer> getByNameAndSurname(String name, String surname) {
+    public List<Customer> getByNameAndSurname(String name, String surname) {
         return customersRepository.findByNameAndSurname(name, surname)
                 .orElseThrow(() -> new RuntimeException("Персоны не найдены"));
     }

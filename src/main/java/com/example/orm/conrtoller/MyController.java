@@ -1,5 +1,6 @@
-package com.example.orm;
+package com.example.orm.conrtoller;
 
+import com.example.orm.MyService;
 import com.example.orm.entity.Customer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
