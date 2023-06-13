@@ -13,11 +13,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MyDataBase {
+public class RoleDataBase {
 
     private EntityManager manager;
 
-    public MyDataBase(EntityManager manager) {
+    public RoleDataBase(EntityManager manager) {
         this.manager = manager;
     }
 

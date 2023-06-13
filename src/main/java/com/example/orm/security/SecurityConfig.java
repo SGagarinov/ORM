@@ -19,7 +19,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@Deprecated
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig {
 
@@ -39,32 +38,22 @@ public class SecurityConfig {
                 .password(bCryptPasswordEncoder.encode("adminPass"))
                 .roles("USER", "ADMIN")
                 .build());
+        manager.createUser(User.withUsername("READ")
+                .password(bCryptPasswordEncoder.encode("read"))
+                .roles("READ")
+                .build());
+        manager.createUser(User.withUsername("READWRITE")
+                .password(bCryptPasswordEncoder.encode("readwrite"))
+                .roles("READ", "WRITE")
+                .build());
+        manager.createUser(User.withUsername("WRITE")
+                .password(bCryptPasswordEncoder.encode("write"))
+                .roles("WRITE")
+                .build());
+        manager.createUser(User.withUsername("DELETE")
+                .password(bCryptPasswordEncoder.encode("delete"))
+                .roles("DELETE", "WRITE", "READ")
+                .build());
         return manager;
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .requestMatchers("security/all")
-                .anonymous()
-                .requestMatchers("security/login/**")
-                .anonymous()
-                .requestMatchers(HttpMethod.DELETE)
-                .hasRole("ADMIN")
-                .requestMatchers("security/admin/**")
-                .hasAnyRole("ADMIN")
-                .requestMatchers("security/user/**")
-                .hasAnyRole("USER", "ADMIN")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        return http.build();
     }
 }

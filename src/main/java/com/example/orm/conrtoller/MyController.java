@@ -1,6 +1,6 @@
 package com.example.orm.conrtoller;
 
-import com.example.orm.MyService;
+import com.example.orm.RoleService;
 import com.example.orm.entity.Customer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,10 +11,10 @@ import java.util.List;
 @RestController
 public class MyController {
 
-    private MyService service;
+    private RoleService service;
 
-    public MyController(MyService myService) {
-        service = myService;
+    public MyController(RoleService roleService) {
+        service = roleService;
     }
 
     @GetMapping("/products/fetch-product")
